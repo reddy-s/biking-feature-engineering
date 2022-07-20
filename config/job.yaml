@@ -1,0 +1,18 @@
+# Input locations
+inputs:
+  - name: stations
+    location: s3a://ml-workflow/sample-data/bike-data/201508_station_data.csv
+    # s3a://ml-workflow/sample-data/bike-data/201508_station_data.csv
+  - name: trips
+    location: /Users/sangramreddy/Documents/dev/pocs/playground/data/bike-data/trips.csv
+    # s3a://ml-workflow/sample-data/bike-data/201508_trip_data.csv
+
+# Output locations
+outputs:
+  - name: biking-features
+    location: /Users/sangramreddy/Documents/dev/pocs/playground/data/bike-data/features.csv
+    # s3a://ml-workflow/sample-data/bike-data/features.csv
+
+# Additional Config for Cluster Submition
+# spark.hadoop.fs.s3a.access.key=
+# spark.hadoop.fs.s3a.secret.key=
