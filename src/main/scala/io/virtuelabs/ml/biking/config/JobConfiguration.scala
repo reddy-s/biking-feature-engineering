@@ -22,6 +22,8 @@ class JobConfig {
 
 object JobConfiguration {
 
+  lazy val config: JobConfig = readConfig
+
   private def readConfig: JobConfig = {
     val unparsedYaml = new FileInputStream(new File(SparkFiles.get("job.yaml")))
     val yamlParser = new Yaml(new Constructor(classOf[JobConfig]))
@@ -29,12 +31,10 @@ object JobConfiguration {
   }
 
   def getJobInputs: Map[String, String] = {
-    val config: JobConfig = readConfig
     config.inputs.asScala.toList.map(e => e.name -> e.location ).toMap
   }
 
   def getJobOutputs: Map[String, String] = {
-    val config: JobConfig = readConfig
     config.outputs.asScala.toList.map(e => e.name -> e.location ).toMap
   }
 }
